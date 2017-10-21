@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cb:CODEBLOCKS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://education.mit.edu/openblocks/ns http://education.mit.edu/openblocks/codeblocks.xsd" xmlns:cb="http://education.mit.edu/openblocks/ns">
+<Pages collapsible-pages="yes" drawer-with-page="yes">
+<Page page-color="40 40 40" page-drawer="ArduBlock" page-infullview="yes" page-name="ArduBlock" page-width="1920">
+<PageBlocks>
+<Block genus-name="pin-write-digital" id="163">
+<Location>
+<X>268</X>
+<Y>130</Y>
+</Location>
+<BeforeBlockId>159</BeforeBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="164" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+<BlockConnector con-block-id="165" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="digital-low" id="165">
+<Location>
+<X>440</X>
+<Y>157</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="163" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="number" id="164">
+<Label>13</Label>
+<Location>
+<X>440</X>
+<Y>133</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="163" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="pin-write-digital" id="160">
+<Location>
+<X>269</X>
+<Y>65</Y>
+</Location>
+<BeforeBlockId>159</BeforeBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="161" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+<BlockConnector con-block-id="162" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="digital-high" id="162">
+<Location>
+<X>441</X>
+<Y>92</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="160" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="number" id="161">
+<Label>13</Label>
+<Location>
+<X>441</X>
+<Y>68</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="160" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="ifelse" id="159">
+<Location>
+<X>96</X>
+<Y>33</Y>
+</Location>
+<BeforeBlockId>154</BeforeBlockId>
+<Sockets num-sockets="3">
+<BlockConnector con-block-id="156" connector-kind="socket" connector-type="boolean" init-type="boolean" label="テスト" position-type="single"/>
+<BlockConnector con-block-id="160" connector-kind="socket" connector-type="cmd" init-type="cmd" label="なら" position-type="single"/>
+<BlockConnector con-block-id="163" connector-kind="socket" connector-type="cmd" init-type="cmd" label="でなければ" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="pin-read-digital" id="156">
+<Location>
+<X>272</X>
+<Y>36</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="159" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="157" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number" id="157">
+<Label>2</Label>
+<Location>
+<X>390</X>
+<Y>36</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="156" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="loop" id="154">
+<Location>
+<X>9</X>
+<Y>25</Y>
+</Location>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="159" connector-kind="socket" connector-type="cmd" init-type="cmd" label="実行" position-type="single"/>
+</Sockets>
+</Block>
+</PageBlocks>
+</Page>
+</Pages>
+</cb:CODEBLOCKS>
