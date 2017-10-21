@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<cb:CODEBLOCKS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://education.mit.edu/openblocks/ns http://education.mit.edu/openblocks/codeblocks.xsd" xmlns:cb="http://education.mit.edu/openblocks/ns">
+<Pages collapsible-pages="yes" drawer-with-page="yes">
+<Page page-color="128 128 128" page-drawer="Main" page-infullview="yes" page-name="Main" page-width="1920">
+<PageBlocks>
+<Block genus-name="digital-low" id="105">
+<Location>
+<X>432</X>
+<Y>255</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="103" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="delay" id="106">
+<Location>
+<X>264</X>
+<Y>282</Y>
+</Location>
+<BeforeBlockId>103</BeforeBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="107" connector-kind="socket" connector-type="number" init-type="number" label="ミリ秒" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number" id="107">
+<Label>250</Label>
+<Location>
+<X>408</X>
+<Y>285</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="106" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="pin-write-digital" id="103">
+<Location>
+<X>264</X>
+<Y>228</Y>
+</Location>
+<BeforeBlockId>101</BeforeBlockId>
+<AfterBlockId>106</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="104" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+<BlockConnector con-block-id="105" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="Gemma_D1" id="104">
+<Location>
+<X>432</X>
+<Y>231</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="103" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="delay" id="101">
+<Location>
+<X>264</X>
+<Y>198</Y>
+</Location>
+<BeforeBlockId>98</BeforeBlockId>
+<AfterBlockId>103</AfterBlockId>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="102" connector-kind="socket" connector-type="number" init-type="number" label="ミリ秒" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="number" id="102">
+<Label>250</Label>
+<Location>
+<X>408</X>
+<Y>201</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="101" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="pin-write-digital" id="98">
+<Location>
+<X>264</X>
+<Y>144</Y>
+</Location>
+<BeforeBlockId>93</BeforeBlockId>
+<AfterBlockId>101</AfterBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="99" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+<BlockConnector con-block-id="100" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="digital-high" id="100">
+<Location>
+<X>432</X>
+<Y>171</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="98" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="Gemma_D1" id="99">
+<Location>
+<X>432</X>
+<Y>147</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="98" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="digital-low" id="97">
+<Location>
+<X>489</X>
+<Y>114</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="96" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+</Block>
+<Block genus-name="equal_digital" id="96">
+<Location>
+<X>267</X>
+<Y>111</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="93" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="mirror"/>
+</Plug>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="94" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="bottom"/>
+<BlockConnector con-block-id="97" connector-kind="socket" connector-type="boolean" init-type="boolean" label="" position-type="bottom"/>
+</Sockets>
+</Block>
+<Block genus-name="pin-read-digital" id="94">
+<Location>
+<X>277</X>
+<Y>114</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="96" connector-kind="plug" connector-type="boolean" init-type="boolean" label="" position-type="single"/>
+</Plug>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="95" connector-kind="socket" connector-type="number" init-type="number" label="#" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="Gemma_D2" id="95">
+<Location>
+<X>391</X>
+<Y>114</Y>
+</Location>
+<Plug>
+<BlockConnector con-block-id="94" connector-kind="plug" connector-type="number" init-type="number" label="" position-type="single"/>
+</Plug>
+</Block>
+<Block genus-name="if" id="93">
+<Location>
+<X>183</X>
+<Y>108</Y>
+</Location>
+<BeforeBlockId>92</BeforeBlockId>
+<Sockets num-sockets="2">
+<BlockConnector con-block-id="96" connector-kind="socket" connector-type="boolean" init-type="boolean" label="テスト" position-type="single"/>
+<BlockConnector con-block-id="98" connector-kind="socket" connector-type="cmd" init-type="cmd" label="なら" position-type="single"/>
+</Sockets>
+</Block>
+<Block genus-name="loop" id="92">
+<Location>
+<X>100</X>
+<Y>100</Y>
+</Location>
+<Sockets num-sockets="1">
+<BlockConnector con-block-id="93" connector-kind="socket" connector-type="cmd" init-type="cmd" label="実行" position-type="single"/>
+</Sockets>
+</Block>
+</PageBlocks>
+</Page>
+</Pages>
+</cb:CODEBLOCKS>
