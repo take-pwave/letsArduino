@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  sbt:
+    #build:
+    #  context: .
+    #  dockerfile: docker/Dockerfile
+    image: takepwave/alpine_sbt_verilator:1.0
+    volumes:
+      - ./src:/src
+
