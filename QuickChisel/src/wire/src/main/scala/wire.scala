@@ -3,7 +3,7 @@ import chisel3.stage._
 
 import java.io.PrintWriter
 
-class Wire extends RawModule {
+class Wire extends Module {
     val io = IO(new Bundle {
         val switch = Input(Bool())
         val led = Output(Bool())
