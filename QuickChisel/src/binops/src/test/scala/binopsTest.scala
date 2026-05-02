@@ -9,6 +9,7 @@ class BinOpsTest extends FlatSpec with ChiselScalatestTester {
     it should "２項演算（＆）" in {
         test(new BinOpsTop())  { c => 
 
+            print()
             c.io.a.poke(false.B)
             c.io.b.poke(false.B)
             c.io.c.expect(false.B)

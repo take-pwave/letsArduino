@@ -20,6 +20,7 @@ class BinOps extends Module {
 // BinOpsのトップクラス（負論理から正論理に変換）
 class BinOpsTop extends Module {
     val io = IO(new BinOpsIO)
+    // BinOpsをモジュールとして使う時には、Moduleでのラップが必要
     val binops = Module(new BinOps)
     
     // 負論理から正論理への変換
