@@ -1,13 +1,100 @@
 ---
 created: 2026-10-25T16:50
-updated: 2026-10-25T16:58
+updated: 2026-10-30T20:44
 ---
 # 46-ProtoThreadsの紹介
 45-VibeCodingで紹介したボードにProtoThreadsを使って疑似的なスレッド処理をOpenCodeとのVibe Codingで実装しました。
 
 WCH-LinkEのシリアル通信の入力用に１本結線を増やしていいます。
+<img src="Files/images/46/WCH-LinkE-Setting.jpg" width="400">
 
-<img src="images/46/WCH-LinkE-Setting.jpg" width="400">
+最初に「タクトボタンを押している間のみLEDを点灯するコードを作って」と言って出力されたコードが以下のコードです。
+```C++
+#include <Arduino.h>
+#include <pt.h>
+#include <pt-sleep.h>
+
+//
+// タクトボタン押下中だけ内蔵LEDを点灯させる
+//
+// 配線:
+//   タクトボタン   D10 (PD0) --- GND   (外部抵抗なし)
+//   内蔵LED        D2  (PC0)  (CUT3で分離可能なオンボードLED)
+//
+// 抵抗がないため内部プルアップを使い、押下時にLOW / 離すとHIGHになる。
+//
+
+static struct pt ptButton;
+
+static const uint8_t LED_PIN    = 2;   // D2  = PC0 = 内蔵LED
+static const uint8_t BUTTON_PIN = 10;  // D10 = PD0 = タクトボタン
+
+static const unsigned long DEBOUNCE_MS = 20;  // チャタリング除去時間 [ms]
+static const unsigned long POLL_MS     = 5;   // 入力ポーリング周期 [ms]
+
+static PT_THREAD(buttonThread(struct pt *pt))
+{
+    static bool          lastRaw;    // 直前の生の入力
+    static bool          stable;     // デバウンス確定後の状態
+    static unsigned long changedAt;  // 生の入力が変化した時刻
+
+    PT_BEGIN(pt);
+
+    lastRaw   = digitalRead(BUTTON_PIN);
+    stable    = lastRaw;
+    changedAt = millis();
+
+    for (;;)
+    {
+        bool raw = digitalRead(BUTTON_PIN);
+
+        if (raw != lastRaw)
+        {
+            // 入力が変化したら計測をやり直す
+            lastRaw   = raw;
+            changedAt = millis();
+        }
+        else if (raw != stable && (millis() - changedAt) >= DEBOUNCE_MS)
+        {
+            // 変化がDEBOUNCE_MS以上続いたら状態を確定
+            stable = raw;
+        }
+
+        // 押下中はLOWなのでLEDを点灯させる
+        digitalWrite(LED_PIN, stable == LOW ? HIGH : LOW);
+
+        PT_SLEEP(pt, POLL_MS);
+    }
+
+    PT_END(pt);
+}
+
+void setup()
+{
+    pinMode(LED_PIN, OUTPUT);
+    pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+    digitalWrite(LED_PIN, LOW);
+    PT_INIT(&ptButton);
+}
+
+void loop()
+{
+    buttonThread(&ptButton);
+}
+```
+
+最終的にOpenCodeでAIと一緒に作成したコードは、以下にあります。
+- <a href="https://github.com/take-pwave/letsArduino/blob/master/code/46/src/main.cpp">main.cpp</a>
+
+これを見て頂くと、最初にAIが提示してきたコードよりも構造がすっきりして、処理の流れを理解しやすいコードになっていることを分かってもらえると思います。
+
+AIは、コードの意味を理解しているのではなく、**多くの例から漠然とこのようにコーディングするのだと解釈している**のだということを分かって使えば、こんなにも分かりやすいコードを作ってくれることをお伝えしたいです。
+
+私としては、以下の点に注意してコードを見て欲しいです。
+- buttonThreadのチャタリング防止のデバウンス処理の後、タクトスイッチを離すまで待つ、PT_WAIT_UNTILでスレッドが切り替わっているのに、コード上はawait処理で待っているように見えている点です。
+- serialThreadで入力がない場合には、すぐにスレッドを切り替えているPT_WAIT_UNTILの部分です。
+- このようにProtoThreadsライブラリの提供するマクロの場所で明示的にスレッドが切り替わっていることもこのライブラリの特徴と言えます。
 
 以下は、OpenCodeが最後にまとめた記事です。
 
