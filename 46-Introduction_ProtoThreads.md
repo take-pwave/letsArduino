@@ -1,9 +1,13 @@
 ---
 created: 2026-10-25T16:50
-updated: 2026-10-30T20:44
+updated: 2026-11-03T09:34
 ---
 # 46-ProtoThreadsの紹介
 45-VibeCodingで紹介したボードにProtoThreadsを使って疑似的なスレッド処理をOpenCodeとのVibe Codingで実装しました。
+
+Vibe Coding時のログ（要約版）とAGENTS.mdは、以下にあります。
+- <a href="https://github.com/take-pwave/letsArduino/blob/master/ProtoThreads%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E3%83%AD%E3%82%B0.md">ProtoThreads 実行ログ（要約版）</a>
+- <a href="https://github.com/take-pwave/letsArduino/blob/master/code/46/AGENTS.md">AGENTS.md</a>
 
 WCH-LinkEのシリアル通信の入力用に１本結線を増やしていいます。
 <img src="Files/images/46/WCH-LinkE-Setting.jpg" width="400">
